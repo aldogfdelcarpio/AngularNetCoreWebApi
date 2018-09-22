@@ -1,0 +1,37 @@
+<div >
+    <h2>Nuevo</h2>
+    <form name="form" (ngSubmit)="f.form.valid && Guardar()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Nombres.valid }">
+            <label for="Nombres">Nombres</label>
+            <input type="text" class="form-control" name="Nombres" [(ngModel)]="model.Nombres" #Nombres="ngModel" required />
+            <div *ngIf="f.submitted && !Nombres.valid" class="help-block alert">Ingresar nombre</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Apellidos.valid }">
+            <label for="Apellidos">Apellidos</label>
+            <input type="text" class="form-control" name="Apellidos" [(ngModel)]="model.Apellidos" #Apellidos="ngModel" required />
+            <div *ngIf="f.submitted && !Apellidos.valid" class="help-block alert">Ingresar apellido</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Correo.valid }">
+            <label for="Correo">Correo</label>
+            <input type="text" class="form-control" name="Correo" [(ngModel)]="model.Correo" #Correo="ngModel" required />
+            <div *ngIf="f.submitted && !Correo.valid" class="help-block alert">Ingresar correo</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Password.valid }">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" name="Password" [(ngModel)]="model.Password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !Password.valid" class="help-block">Ingresar password</div>
+        </div>
+        <div class="form-group">
+            <label for="idTipoUsuario">Tipo Usuario</label>
+            <select #idTipoUsuario="ngModel" class="form-control" [(ngModel)]="model.idTipoUsuario" name="idTipoUsuario">
+                <option [ngValue]="k.id" *ngFor="let k of listaTipoUsuario">
+                      {{k.nombre}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Guardar</button>
+            <a [routerLink]="['/usuarioListado']" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>

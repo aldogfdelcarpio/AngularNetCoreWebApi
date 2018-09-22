@@ -1,0 +1,45 @@
+<div>
+    <h2>Nueva Charla</h2>
+    <form name="form" (ngSubmit)="f.form.valid && Guardar()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Nombre.valid }">
+            <label for="Nombre">Nombre</label>
+            <input type="text" class="form-control" name="Nombre" [(ngModel)]="model.Nombre" #Nombre="ngModel" required />
+            <div *ngIf="f.submitted && !Nombre.valid" class="help-block alert">Ingresar nombre</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Fecha.valid }">
+            <label for="Fecha">Fecha</label>
+            <input type="date" class="form-control" name="Fecha" [(ngModel)]="model.Fecha" #Fecha="ngModel" required />
+            <div *ngIf="f.submitted && !Fecha.valid" class="help-block alert">Ingresar Fecha</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !HoraInicio.valid }">
+            <label for="HoraInicio">Inicio</label>
+            <input type="time" class="form-control" name="HoraInicio" [(ngModel)]="model.HoraInicio" #HoraInicio="ngModel" required />
+            <div *ngIf="f.submitted && !HoraInicio.valid" class="help-block alert">Ingresar Inicio</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !HoraFin.valid }">
+            <label for="HoraFin">Fin</label>
+            <input type="time" class="form-control" name="HoraFin" [(ngModel)]="model.HoraFin" #HoraFin="ngModel" required />
+            <div *ngIf="f.submitted && !HoraFin.valid" class="help-block alert">Ingresar Fin</div>
+        </div>
+        <div class="form-group">
+            <label for="idSala">Sala</label>
+            <select #idSala="ngModel" class="form-control" [(ngModel)]="model.idSala" name="idSala">
+                <option [ngValue]="s.id" *ngFor="let s of listaSalas">
+                      {{s.nombre}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="idSpeaker">Speaker</label>
+            <select #idSpeaker="ngModel" class="form-control" [(ngModel)]="model.idSpeaker" name="idSpeaker">
+                <option [ngValue]="k.id" *ngFor="let k of listaSpeakers">
+                      {{k.nombres}} {{k.apellidos}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Guardar</button>
+            <a [routerLink]="['/charlaListado']" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>

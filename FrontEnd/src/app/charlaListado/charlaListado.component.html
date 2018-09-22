@@ -1,0 +1,34 @@
+<h3>CHARLAS</h3>
+<br />
+<a class="btn btn-info" [routerLink]="['/charlaNueva']">Nuevo</a>
+<br />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>H. Inicio</th>
+        <th>H. Fin</th>
+        <th>Sala</th>
+        <th>Speaker</th>
+        <th>Asistentes</th>
+        <th>Disponibilidad</th>
+        <th></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let charla of charlas">
+      <td>{{ charla.nombre }}</td>
+      <td>{{ charla.fecha }}</td>      
+      <td>{{ charla.horaInicio }}</td>
+      <td>{{ charla.horaFin }}</td>
+      <td>{{ charla.sala }}</td>
+      <td>{{ charla.speaker }}</td>
+      <td>{{ charla.cantidadAsistentes }}</td>
+      <td>{{ charla.cantidadDisponible }}</td>
+      <td><a class="btn btn-success">Editar</a></td>
+      <td><a (click)="eliminarCharla(charla.id)" class="btn btn-danger">Eliminar</a></td>
+    </tr>
+  </tbody>
+</table>

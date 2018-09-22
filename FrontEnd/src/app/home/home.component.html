@@ -1,0 +1,64 @@
+<div class="col-md-12">
+  <h1>Usuario {{currentUser.nombres}} {{currentUser.apellidos}}!</h1>
+  
+  <h2>Charlas</h2>
+  <h3>Disponibles</h3>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>H. Inicio</th>
+            <th>H. Fin</th>
+            <th>Sala</th>
+            <th>Speaker</th>
+            <th>Asistentes</th>
+            <th>Disponibilidad</th>
+            <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let charla of charlasDisponibles">
+          <td>{{ charla.nombre }}</td>
+          <td>{{ charla.fecha }}</td>      
+          <td>{{ charla.horaInicio }}</td>
+          <td>{{ charla.horaFin }}</td>
+          <td>{{ charla.sala }}</td>
+          <td>{{ charla.speaker }}</td>
+          <td>{{ charla.cantidadAsistentes }}</td>
+          <td>{{ charla.cantidadDisponible }}</td>
+          <td><a (click)="incribirseCharla(charla.id)" class="btn btn-success">Add</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Inscritas</h3>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Fecha</th>
+              <th>H. Inicio</th>
+              <th>H. Fin</th>
+              <th>Sala</th>
+              <th>Speaker</th>
+              <th>Asistentes</th>
+              <th>Disponibilidad</th>
+              <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let charla of charlasMias">
+            <td>{{ charla.nombre }}</td>
+            <td>{{ charla.fecha }}</td>      
+            <td>{{ charla.horaInicio }}</td>
+            <td>{{ charla.horaFin }}</td>
+            <td>{{ charla.sala }}</td>
+            <td>{{ charla.speaker }}</td>
+            <td>{{ charla.cantidadAsistentes }}</td>
+            <td>{{ charla.cantidadDisponible }}</td>
+            <td><a (click)="eliminarCharla(charla.id)" class="btn btn-danger">Del</a></td>
+          </tr>
+        </tbody>
+      </table>
+  
+</div>

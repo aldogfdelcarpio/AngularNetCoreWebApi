@@ -1,0 +1,22 @@
+<h3>SALA</h3>
+<br />
+<a class="btn btn-info" [routerLink]="['/salaNueva']">Nuevo</a>
+<br />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Capacidad</th>
+        <th></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sala of salas">
+      <td>{{ sala.nombre }}</td>
+      <td>{{ sala.capacidad }}</td>      
+      <td><a class="btn btn-success">Editar</a></td>
+      <td><a (click)="eliminarSala(sala.id)" class="btn btn-danger">Eliminar</a></td>
+    </tr>
+  </tbody>
+</table>

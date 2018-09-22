@@ -1,0 +1,20 @@
+<div >
+    <h2>Sala</h2>
+    <form name="form" (ngSubmit)="f.form.valid && Guardar()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Nombre.valid }">
+            <label for="Nombre">Nombre</label>
+            <input type="text" class="form-control" name="Nombre" [(ngModel)]="model.Nombre" #Nombre="ngModel" required />
+            <div *ngIf="f.submitted && !Nombre.valid" class="help-block alert">Ingresar nombre</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Capacidad.valid }">
+            <label for="Capacidad">Capacidad</label>
+            <input type="number" class="form-control" name="Capacidad" [(ngModel)]="model.Capacidad" #Capacidad="ngModel" required />
+            <div *ngIf="f.submitted && !Capacidad.valid" class="help-block alert">Ingresar capacidad</div>
+        </div>
+        
+        <div class="form-group">
+            <button class="btn btn-primary">Guardar</button>
+            <a [routerLink]="['/salaListado']" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>
