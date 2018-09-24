@@ -8,4 +8,4 @@ para la creación de los proyectos tanto para el web api como para el front end 
 Angular : https://angular.io/guide/quickstart
 WebApi net core: https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-vsc?view=aspnetcore-2.1
 
-El proyecto es un crud (incompleto, falta editar :D)
+El proyecto es un crud (incompleto, falta la funcionalidad Editar registros :D)
