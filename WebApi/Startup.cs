@@ -35,7 +35,7 @@ namespace WebApi
         {
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            var conexion = "data source=DESKTOP-VNEIDF3;initial catalog=CharlasDb;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+            var conexion = "data source=SERVIDOR;initial catalog=BASEDEDATOS;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
             services.AddDbContext<WebApiContext>(opciones => opciones.UseSqlServer(conexion));
             services.AddAutoMapper();
             services.AddScoped<IUsuarioServicio,UsuarioServicio>();
